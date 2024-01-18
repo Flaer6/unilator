@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Unilator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__title">Unilator</h1>
+    </header>
+    <main>
+      <div class="container">
+        <div class="box">
+          <a href="hypotenuse.html" class="block">Гипотенуза</a>
+          <a href="cathetus.html" class="block">Катет</a>
+        </div>
+      </div>
+    </main>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((registration) => {
+            console.log("Service Worker зарегистрирован:", registration);
+          })
+          .catch((error) => {
+            console.error("Ошибка при регистрации Service Worker:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
