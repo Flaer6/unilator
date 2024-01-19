@@ -14,24 +14,42 @@ document.addEventListener("DOMContentLoaded", () => {
     let cath2Val = parseFloat(cath2.value);
     let gypo = cath1Val ** 2 + cath2Val ** 2;
     let gypoRediz = Math.sqrt(gypo);
+
     console.log("click");
-    result.innerHTML = `
-    <code>
-      a = ${cath1Val}
-      </br>
-      b = ${cath2Val} 
-      </br>
-      c = √(a² + b²)
-      </br>
-      c = √${gypo} 
-      </br>
-      c = ${gypoRediz.toFixed(2)}
-      </code>
-    `;
-    reset.addEventListener("click", () => {
-      result.innerHTML = "";
-      cath1.value = "";
-      cath2.value = "";
-    });
+
+    typeText(
+      result,
+      `
+a = ${cath1Val}
+b = ${cath2Val} 
+c = √(a² + b²)
+c = √${gypo} 
+c = ${gypoRediz.toFixed(2)}
+`
+    );
   });
+
+  reset.addEventListener("click", () => {
+    result.innerHTML = ""; // Очищаем содержимое элемента .result
+    cath1.value = "";
+    cath2.value = "";
+  });
+
+  function typeText(element, text) {
+    let lines = text.split("\n");
+    let index = 0;
+
+    function type() {
+      element.innerHTML += lines[index];
+      index++;
+      if (index < lines.length) {
+        setTimeout(() => {
+          element.innerHTML += "<br>"; // Добавление переноса строки между строками
+          type();
+        }, 150);
+      }
+    }
+
+    type(); // Запуск функции печати
+  }
 });

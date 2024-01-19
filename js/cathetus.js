@@ -1,37 +1,53 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
-  let cath1 = document.getElementById("cathetus");
-  let gypo = document.getElementById("hypotenuse");
-  let cathBtn = document.querySelector(".cathBtn");
-  let result = document.querySelector(".result");
-  let reset = document.getElementById("reset");
+  const cath1 = document.getElementById("cathetus");
+  const gypo = document.getElementById("hypotenuse");
+  const cathBtn = document.querySelector(".cathBtn");
+  const result = document.querySelector(".result");
+  const reset = document.getElementById("reset");
 
   cathBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
-    let cath1Val = parseFloat(cath1.value);
-    let gypoVal = parseFloat(gypo.value);
-    let cath2 = gypoVal ** 2 - cath1Val ** 2;
-    let cath2Rediz = Math.sqrt(cath2);
+    const cath1Val = parseFloat(cath1.value);
+    const gypoVal = parseFloat(gypo.value);
+    const cath2 = gypoVal ** 2 - cath1Val ** 2;
+    const cath2Rediz = Math.sqrt(cath2);
+
     console.log("click");
-    result.innerHTML = `
-    <code>
-      a = ${cath1Val}
-      </br>
-      c = ${gypoVal}
-      </br>
-      b = √(c² - a²)
-      </br>
-      b = √${cath2}
-      </br>
-      b = ${cath2Rediz.toFixed(2)}
-      </code>
-    `;
-    reset.addEventListener("click", () => {
-      result.innerHTML = "";
-      cath1.value = ''
-      gypo.value = ''
-    });
+
+    typeText(
+      result,
+      `
+a = ${cath1Val}
+c = ${gypoVal}
+b = √(c² - a²)
+b = √${cath2}
+b = ${cath2Rediz.toFixed(2)}
+`
+    );
   });
+
+  reset.addEventListener("click", () => {
+    resetFields([result, cath1, gypo]);
+  });
+
+  function typeText(element, text) {
+    let lines = text.split("\n");
+    let index = 0;
+
+    function type() {
+      element.innerHTML += lines[index];
+      index++;
+      if (index < lines.length) {
+        setTimeout(() => {
+          element.innerHTML += "<br>";
+          type();
+        }, 150);
+      }
+    }
+
+    type();
+  }
 });
