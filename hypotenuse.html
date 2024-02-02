@@ -19,11 +19,31 @@
     </header>
     <main>
       <div class="container">
-        <div class="box">
-          <a href="hypotenuse.html" class="block">Гипотенуза</a>
-          <a href="cathetus.html" class="block">Катет</a>
-        </div>
+        <div class="result"></div>
+        <form class="box form">
+          <label for="cathetus1">Катет 1</label>
+          <input
+            type="number"
+            name="val1"
+            id="cathetus1"
+            value=""
+            placeholder="Катет 1"
+          />
+
+          <label for="cathetus2">Катет 2</label>
+          <input
+            type="number"
+            name="val2"
+            id="cathetus2"
+            value=""
+            placeholder="Катет 2"
+          />
+          <button class="btn hypotenuse">Считать!</button>
+        </form>
+          <a href="cathetus.html" class="nav">Катет</a>
+            <button id="reset">Сброс</button>
       </div>
     </main>
+    <script src="js/hypotenuse.js"></script>
   </body>
 </html>
