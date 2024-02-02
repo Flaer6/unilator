@@ -129,7 +129,7 @@ h1 {
 }
 
 input {
-  padding: 10px 30px;
+  padding: 10px;
   box-shadow: 0 0 7px rgb(50, 50, 54);
   border-radius: 5px;
   width: 100%;
@@ -183,6 +183,10 @@ label {
 .nav {
   font-size: 20px;
   text-decoration: underline;
+}
+.form__tasks {
+  display: flex;
+  gap: 40px;
 }
 #reset {
   font-size: 20px;
