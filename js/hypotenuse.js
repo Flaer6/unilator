@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       `
 a = ${cath1Val}
 b = ${cath2Val} 
-c = √(a² + b²)
+c = √${cath1Val}² + ${cath2Val}²
+c = √${cath1Val**2} + ${cath2Val**2}
 c = √${gypo} 
 c = ${gypoRediz.toFixed(2)}
 `

@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       `
 a = ${cath1Val}
 c = ${gypoVal}
-b = √(c² - a²)
+b = √${gypoVal}² - ${cath1Val}²
+b = √${gypoVal**2} - ${cath1Val**2}
 b = √${cath2}
 b = ${cath2Rediz.toFixed(2)}
 `
